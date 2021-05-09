@@ -8,6 +8,7 @@ import {ProductPageComponent} from './product-page/product-page.component';
 import {CartPageComponent} from './cart-page/cart-page.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import {AppRoutingModule} from './app-routing.module';
 
   ],
   imports: [
-    BrowserModule, AppRoutingModule
+    BrowserModule, AppRoutingModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
