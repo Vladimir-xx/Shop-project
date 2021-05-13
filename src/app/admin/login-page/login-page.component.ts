@@ -11,8 +11,9 @@ import {Router} from '@angular/router';
 export class LoginPageComponent implements OnInit {
   form: FormGroup;
   submitted = false;
+  date = new Date(new Date().getTime());
 
-  constructor(public auth: AuthService, private router: Router,) {
+  constructor(public auth: AuthService, private router: Router ) {
   }
 
   ngOnInit(): void {
@@ -31,8 +32,11 @@ export class LoginPageComponent implements OnInit {
     const user = {
       email: this.form.value.email,
       password: this.form.value.password,
+      returnSecureToken: true,
     };
     this.auth.login(user).subscribe(res => {
+        console.log(res);
+        console.log(this.date);
         this.form.reset();
         this.router.navigate(['/admin', 'dashboard']);
         this.submitted = false;
