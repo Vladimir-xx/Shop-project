@@ -1,1 +1,48 @@
-<p>add-page works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+  <h2 class="text-center">Add Product</h2>
+
+  <div class="form-control">
+    <label for="type">Type</label>
+    <select formControlName="type">
+      <option value="Phone">Phone</option>
+      <option value="Tablet">Tablet</option>
+      <option value="Laptop">Laptop</option>
+    </select>
+  </div>
+  <div *ngIf="form.get('type').touched && form.get('type').invalid" class="validation">
+    <smal class="validation" *ngIf="form.get('type').errors.required">Chose product type</smal>
+  </div>
+
+  <div class="form-control">
+    <label for="title">Name</label>
+    <input type="title" id="title" formControlName="title">
+  </div>
+  <div *ngIf="form.get('title').touched && form.get('title').invalid" class="validation">
+    <smal class="validation" *ngIf="form.get('title').errors.required">Enter product type</smal>
+  </div>
+
+  <div class="form-control">
+    <label for="type">Photo</label>
+    <quill-editor formControlName="photo"></quill-editor>
+  </div>
+
+
+  <div class="form-control">
+    <label for="type">Information</label>
+
+    <quill-editor formControlName="info"></quill-editor>
+      </div>
+
+
+  <div class="form-control">
+    <label for="price">price</label>
+    <input type="price" id="price" formControlName="price">
+  </div>
+  <div *ngIf="form.get('price').touched && form.get('price').invalid" class="validation">
+    <smal class="validation" *ngIf="form.get('price').errors.required">Enter product price</smal>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid || submitted ">ADD</button>
+
+</form>

@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../shared/auth.service';
 import {Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -13,7 +14,7 @@ export class LoginPageComponent implements OnInit {
   submitted = false;
   date = new Date(new Date().getTime());
 
-  constructor(public auth: AuthService, private router: Router ) {
+  constructor(public auth: AuthService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -25,6 +26,7 @@ export class LoginPageComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   submit() {
+
     if (this.form.invalid) {
       return;
     }
