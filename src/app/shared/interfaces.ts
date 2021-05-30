@@ -12,5 +12,5 @@ export interface Product {
   info: string;
   price: number;
   date: Date;
-
+  id?: any;
 }
